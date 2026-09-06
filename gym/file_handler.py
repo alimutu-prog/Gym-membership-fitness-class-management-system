@@ -12,7 +12,7 @@ import os #interact with my machine OS
 
 from member import Member
 from fitness_class import FitnessClass
-from registrtion import Registrtion
+from registration import Registration
 
 
 
