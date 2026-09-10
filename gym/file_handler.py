@@ -12,7 +12,7 @@ import os #interact with my machine OS
 
 from member import Member
 from fitness_class import FitnessClass
-from registrtion import Registrtion
+from registrtion import Registration
 
 
 
@@ -71,7 +71,59 @@ def load_members():
     except FileNotFoundError:
 
         print("[info] No existing members file found.start afresh")
-        
+
     return members
 
+                #CLASSES
+
+def save_classes(classes):
+    """Writing the full list of fitness class objects to classes.csv"""
+    ensure_data_folder()
+    with open(CLASSES_FILE,"w",newline="",encoding="utf-8") as f:
+        writer=csv.writer(f)
+        for fitness_class in classes:
+            writer.writerow(fitness_class.to_row())
+
+
+def load_classes():
+    """Reads classes.csv and return a list of FitnessClass objects"""
+    classes=[]
+    try:
+        with open(CLASSES_FILE,"r",newline="",encoding="utf-8") as f:
+            reader=csv.reader(f)
+            for row in reader:
+                if row:
+                    classes.append(FitnessClass.from_row(row))
+    except FileNotFoundError:
+        print("[info] No existing classes found.start afresh")
+    return classes
+
+
+
+                  #REGISTRTIONS
+def save_registrations(registrations):
+
+    ensure_data_folder
+
+    with open(REGISTRATIONS_FILE,"w",newline="",encoding="utf-8") as f:
+        writer=csv.writer(f)
+        for registrtion in registrations:
+            writer.writerow(registrtion.to_row)
+
+
+def load_registrations():
+
+    registrations=[]
+    try:
+
+
+       with open(REGISTRATIONS_FILE, "r", newline="", encoding="utf-8") as f:
+            reader=csv.reader(f)
+            for row in reader:
+                if row:
+                    registrations.append(Registration.from_row(row))
+    except FileNotFoundError:
+         print("[Info] No existing registrations file found. Starting fresh.")
+    return registrations
+    
 
