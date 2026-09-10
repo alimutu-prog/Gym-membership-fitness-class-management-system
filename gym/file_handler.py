@@ -125,5 +125,20 @@ def load_registrations():
     except FileNotFoundError:
          print("[Info] No existing registrations file found. Starting fresh.")
     return registrations
+
+
+
+
+#SAVING AND LOADING ALL
+
+def save_all(gym_system):
+
+    save_members(gym_system.members)
+    save_classes(gym_system.classes)
+    save_registrations(gym_system.registartions)
+
+def load_all():
+
+    return load_members,load_classes,load_registrations()
     
 
