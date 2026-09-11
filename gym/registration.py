@@ -75,8 +75,49 @@ class GymSystem:
                 found_member = member
 
         if found_member == None:
-            proint("Member ID is invalid")
+            print("Member ID is invalid")
             return
+
+#Checking if gymclass_id exists
+        found_class = None
+        for gymclass in self.classes:
+            if gymclass.class_id == gymclass_id:
+                found_class = gymclass
+
+        if found_class == None:
+            print("Gym Class ID is invalid")
+            return
+
+#There is possibility one cant register if class is full
+        if found_class.is_full():
+            print("Cannot register, class is full")
+            return
+
+#Now i create real regstration to test then next is to meet up for mergingn final tests and see if system works
+        new_id = "R" + str(len(self.registrations) + 1)
+#I use letter R out of all because all my Registarion ID starts with R
+        new_registration = Registration(new_id, member_id, gymclass_id, "11/09/2026", "Active")
+        self.registrations.append(new_registration) #This adds a new registration to the list with all registarions
+        found_class.add_registration()
+#Different from one above this directs the registration to the class and add one member registered out of the whole capacity
+        print(f"Your member ID {member_id} has been succesfully added for {found_class.class_name} class")
+        return new_registration
+#After the registration is aded one receives a message for complete registration
+
+#Testing if registration works
+test = GymSystem()
+#Adding members to the system
+test.members.append(Member("M001", "Allan"))
+test.members.append(Member("M002", "Marcel"))
+#Adding classes to the system and its member registration
+test.classes.append(FitnessClass("C001", "Yoga", 4))
+test.register_for_class("M002", "C001")
+test.register_for_class("M001", "C001")
+
+
+
+
+
 
 
 
