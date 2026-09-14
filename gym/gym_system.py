@@ -19,3 +19,14 @@ class GymSystem:
         new_member=Member(member_id,name,age,membership_type,contact)
         self.members.append(new_member)
         return new_member
+
+    # This function prints every registered member and handles the case where there are no registered members yet.
+    def display_members(self):
+        if not self.members:
+            print("No members registered yet.")
+            return
+        print('\n--- Registered Members ---')
+        for m in self.members:
+            m.display_details()
+
+    
