@@ -1,3 +1,5 @@
+from member import Member
+
 class GymSystem:
     def __init__(self):
         self.members=[]
@@ -29,4 +31,20 @@ class GymSystem:
         for m in self.members:
             m.display_details()
 
+    # This function searches members by ID or name(case-insensitive,partial match )
+    # It returns a list of matching Member objects(maybe empty).
+    def search_member(self,keyword):
+        keyword=keyword.lower().strip()
+        results=[
+            m for m in self.members
+            if keyword in m.member_id.lower() or keyword in m.name.lower()
+        ]
+        return results
+
+#    This function returns the Member with this exact ID, or None if not found.
+    def find_member_by_id(self,member_id):
+        for m in self.members:
+            if m.member_id == member_id:
+                return m
+        return None
     
