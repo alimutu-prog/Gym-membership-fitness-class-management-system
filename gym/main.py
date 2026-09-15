@@ -1,6 +1,5 @@
-
-# Importing the Gymsystem class from the gym_system module
-from gym_system import Gymsystem
+# Importing the GymSystem class from the gym_system module
+from gym_system import GymSystem
 
 # This function asks the user to enter a value that cannot be empty
 def get_nonempty_string(prompt):
@@ -42,6 +41,7 @@ def get_valid_int(prompt,min_value=None):
 # and whether the entered number is too small
         if min_value is not None and value < min_value:
             print(f"Value must be at least {min_value}.Pleae make another attempt")
+            continue
         return value
 
 # This function gets a choice from a menu
@@ -56,13 +56,13 @@ def get_menu_choice(prompt,valid_choices):
             return choice
 
 # Display an error message when the choice is invalid
-        print("invalid choice.please enter one of:{','.join(valid_choices)}")
+        print(f"invalid choice.please enter one of:{','.join(valid_choices)}")
     
 
 
 
 #Menu actions
-```python
+
 def action_add_member(gym):
     # Show the add-member section
     print("\n**** Add New Member ***")
@@ -218,7 +218,7 @@ def action_save(gym):
     except OSError as e:
         # Handle saving errors
         print(f"Something went wrong while saving data: {e}")
-```
+
 
 
 MENU_TEXT = """ 
@@ -317,4 +317,4 @@ def main():
  
 # Run main() only when this file is executed directly.
 if __name__ == "__main__": 
-    main()    
+    main()
