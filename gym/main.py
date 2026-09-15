@@ -57,6 +57,7 @@ def get_menu_choice(prompt,valid_choices):
 
 # Display an error message when the choice is invalid
         print("invalid choice.please enter one of:{','.join(valid_choices)}")
+    
 
 
 
@@ -221,9 +222,7 @@ def action_save(gym):
 
 
 MENU_TEXT = """ 
-================================= 
    GYM MANAGEMENT SYSTEM 
-================================= 
 1. Add Member 
 2. Display All Members 
 3. Search Member 
@@ -235,7 +234,6 @@ MENU_TEXT = """
 9. View All Registrations 
 10. Save Data 
 11. Exit 
-================================= 
 """ 
 
 
