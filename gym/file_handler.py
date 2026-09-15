@@ -24,7 +24,7 @@ MEMBERS_FILE=os.path.join(DATA_FOLDER,"members.csv")
 
 CLASSES_FILE=os.path.join(DATA_FOLDER,"classes.csv")
 
-REGISTRATIONS_FILE=os.path.join(DATA_FOLDER,"registrtions.csv")
+REGISTRATIONS_FILE = os.path.join(DATA_FOLDER, "registrations.csv")
 
 
 
