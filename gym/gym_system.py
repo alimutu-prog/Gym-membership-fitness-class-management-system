@@ -213,3 +213,12 @@ class GymSystem:
             if c.class_id == class_id:
                 return c
         return None
+    
+    def save_data(self):
+        """Save members, classes, and registrations to their CSV files."""
+        file_handler.save_all(self)
+        print("Data saved successfully.")
+
+    def load_data(self):
+        """Load members, classes, and registrations from their CSV files."""
+        self.members, self.classes, self.registrations = file_handler.load_all()
