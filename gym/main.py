@@ -220,4 +220,103 @@ def action_save(gym):
 ```
 
 
-    
+MENU_TEXT = """ 
+================================= 
+   GYM MANAGEMENT SYSTEM 
+================================= 
+1. Add Member 
+2. Display All Members 
+3. Search Member 
+4. Add Fitness Class 
+5. Display All Fitness Classes 
+6. Register Member for a Class 
+7. Cancel a Registration 
+8. View a Member's Registered Classes 
+9. View All Registrations 
+10. Save Data 
+11. Exit 
+================================= 
+""" 
+
+
+def main(): 
+    # Create the main GymSystem object.
+    gym = GymSystem() 
+ 
+    # Load previously saved data when the application starts.
+    gym.load_data()
+
+    # Inform the user that saved data has been loaded.
+    print("Welcome! Previously saved data (if any) has been loaded.") 
+ 
+    # Create a list of valid menu choices from 1 to 11.
+    valid_choices = [str(n) for n in range(1, 12)] 
+ 
+    # Keep showing the menu until the user chooses Exit.
+    while True:
+
+        # Display the main menu.
+        print(MENU_TEXT)
+
+        # Ask the user for a valid menu choice.
+        choice = get_menu_choice(
+            "Enter your choice (1-11): ",
+            valid_choices
+        ) 
+ 
+        # Add a new member.
+        if choice == "1": 
+            action_add_member(gym) 
+
+        # Display all registered members.
+        elif choice == "2": 
+            action_display_members(gym) 
+
+        # Search for a specific member.
+        elif choice == "3": 
+            action_search_member(gym) 
+
+        # Add a new fitness class.
+        elif choice == "4": 
+            action_add_class(gym) 
+
+        # Display all available fitness classes.
+        elif choice == "5": 
+            action_display_classes(gym) 
+
+        # Register a member for a fitness class.
+        elif choice == "6": 
+            action_register_for_class(gym) 
+
+        # Cancel an existing registration.
+        elif choice == "7": 
+            action_cancel_registration(gym) 
+
+        # Show the classes registered by a specific member.
+        elif choice == "8": 
+            action_view_member_registrations(gym) 
+
+        # Display all registrations in the system.
+        elif choice == "9": 
+            action_view_all_registrations(gym) 
+
+        # Save the current gym data.
+        elif choice == "10": 
+            action_save(gym) 
+
+        # Save data and exit the application.
+        elif choice == "11": 
+
+            # Automatically save before exiting so no data is lost.
+            action_save(gym)
+
+            # Display a goodbye message.
+            print("Data saved. Goodbye!")
+
+            # Stop the menu loop and close the program.
+            break 
+ 
+ 
+# Run main() only when this file is executed directly.
+if __name__ == "__main__": 
+    main()    
