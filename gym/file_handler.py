@@ -24,7 +24,7 @@ MEMBERS_FILE=os.path.join(DATA_FOLDER,"members.csv")
 
 CLASSES_FILE=os.path.join(DATA_FOLDER,"classes.csv")
 
-REGISTRATIONS_FILE=os.path.join(DATA_FOLDER,"registrtions.csv")
+REGISTRATIONS_FILE = os.path.join(DATA_FOLDER, "registrations.csv")
 
 
 
@@ -103,12 +103,12 @@ def load_classes():
                   #REGISTRTIONS
 def save_registrations(registrations):
 
-    ensure_data_folder
+    ensure_data_folder()
 
-    with open(REGISTRATIONS_FILE,"w",newline="",encoding="utf-8") as f:
-        writer=csv.writer(f)
-        for registrtion in registrations:
-            writer.writerow(registrtion.to_row)
+    with open(REGISTRATIONS_FILE, "w", newline="", encoding="utf-8") as f:
+        writer = csv.writer(f)
+        for registration in registrations:
+            writer.writerow(registration.to_row())
 
 
 def load_registrations():
@@ -130,15 +130,16 @@ def load_registrations():
 
 
 #SAVING AND LOADING ALL
+# SAVING AND LOADING ALL
 
 def save_all(gym_system):
 
     save_members(gym_system.members)
     save_classes(gym_system.classes)
-    save_registrations(gym_system.registartions)
+    save_registrations(gym_system.registrations)
+
 
 def load_all():
 
-    return load_members,load_classes,load_registrations()
-    
+    return load_members(), load_classes(), load_registrations()
 
